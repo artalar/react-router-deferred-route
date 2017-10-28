@@ -1,5 +1,5 @@
 {
-  "name": "react-router-deffered-route",
+  "name": "react-router-deferred-route",
   "version": "1.0.0",
   "main": "/lib/index.js",
   "module": "es/index.js",
@@ -31,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/artalar/react-router-deffered-route.git"
+    "url": "git+https://github.com/artalar/react-router-deferred-route.git"
   },
   "keywords": [
     "redux-act"
@@ -39,7 +39,7 @@
   "author": "artalar",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/artalar/react-router-deffered-route/issues"
+    "url": "https://github.com/artalar/react-router-deferred-route/issues"
   },
-  "homepage": "https://github.com/artalar/react-router-deffered-route#readme"
+  "homepage": "https://github.com/artalar/react-router-deferred-route#readme"
 }

@@ -2,7 +2,7 @@
 
 ## Usage example
 ```javascript
-import DeferredRoute from 'react-router-deffered-route';
+import DeferredRoute from 'react-router-deferred-route';
 
 //...
 
