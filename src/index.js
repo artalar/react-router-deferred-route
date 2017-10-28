@@ -25,7 +25,7 @@ class DeferredRoute extends React.Component {
   static propTypes = {
     component: PropTypes.func.isRequired,
     delay: PropTypes.number,
-    onUnMounting: PropTypes.object,
+    onUnmounting: PropTypes.object,
     innerProps: PropTypes.object,
     path: PropTypes.string,
   };
@@ -41,7 +41,7 @@ class DeferredRoute extends React.Component {
 
   render() {
     const currentPath = this.context.router.route.location.pathname;
-    const { path, delay, component, innerProps, onUnMounting } = this.props;
+    const { path, delay, component, innerProps, onUnmounting } = this.props;
     const { mounted } = this.state;
     const { lastActionTime } = this;
     const pathsEqual = currentPath.startsWith(path);
@@ -70,7 +70,7 @@ class DeferredRoute extends React.Component {
           <Route
             path={[currentPath, path]}
             render={routerProps =>
-              React.createElement(component, { ...routerProps, ...innerProps, ...onUnMounting })}
+              React.createElement(component, { ...routerProps, ...innerProps, ...onUnmounting })}
           />
         );
       }
