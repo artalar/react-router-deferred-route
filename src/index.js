@@ -13,31 +13,9 @@ class DeferredRoute extends React.Component {
     this.lastActionTime = +new Date();
     this.lastActionId = -1;
   }
-  static contextTypes = {
-    router: PropTypes.shape({
-      route: PropTypes.shape({
-        location: PropTypes.shape({
-          pathname: PropTypes.string.isRequired,
-        }),
-      }),
-    }),
-  };
-  static propTypes = {
-    component: PropTypes.func.isRequired,
-    delay: PropTypes.number,
-    onUnmounting: PropTypes.object,
-    innerProps: PropTypes.object,
-    path: PropTypes.string,
-  };
-  static defaultProps = {
-    delay: 1000,
-    onUnMount: null,
-    innerProps: null,
-    path: '/',
-  };
-  componentWillUnmount = () => {
+  componentWillUnmount() {
     clearTimeout(this.lastActionId);
-  };
+  }
 
   render() {
     const currentPath = this.context.router.route.location.pathname;
@@ -56,7 +34,8 @@ class DeferredRoute extends React.Component {
           <Route
             path={path}
             render={routerProps =>
-              React.createElement(component, { ...routerProps, ...innerProps })}
+              React.createElement(component, Object.assign({}, routerProps, innerProps))
+            }
           />
         );
       } else {
@@ -68,25 +47,55 @@ class DeferredRoute extends React.Component {
         }
         return (
           <Route
-            path={[currentPath, path]}
             render={routerProps =>
-              React.createElement(component, { ...routerProps, ...innerProps, ...onUnmounting })}
+              React.createElement(
+                component,
+                Object.assign({}, routerProps, innerProps, onUnmounting)
+              )
+            }
           />
         );
       }
     } else {
       if (pathsEqual) {
         clearTimeout(this.lastActionId);
-        this.setState({ mounted: true });
+        setTimeout(() => this.setState({ mounted: true }));
       }
       return (
         <Route
           path={path}
-          render={routerProps => React.createElement(component, { ...routerProps, ...innerProps })}
+          render={routerProps =>
+            React.createElement(component, Object.assign({}, routerProps, innerProps))
+          }
         />
       );
     }
   }
 }
+
+DeferredRoute.contextTypes = {
+  router: PropTypes.shape({
+    route: PropTypes.shape({
+      location: PropTypes.shape({
+        pathname: PropTypes.string.isRequired,
+      }),
+    }),
+  }),
+};
+
+DeferredRoute.propTypes = {
+  component: PropTypes.func.isRequired,
+  delay: PropTypes.number,
+  onUnmounting: PropTypes.object,
+  innerProps: PropTypes.object,
+  path: PropTypes.string,
+};
+
+DeferredRoute.defaultProps = {
+  delay: 1000,
+  onUnMount: null,
+  innerProps: null,
+  path: '/',
+};
 
 export default DeferredRoute;

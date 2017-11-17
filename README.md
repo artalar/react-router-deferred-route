@@ -21,3 +21,6 @@ import DeferredRoute from 'react-router-deferred-route';
 
 //...
 ```
+
+* component get Route properties
+* need react-router v4*

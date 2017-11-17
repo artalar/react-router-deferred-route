@@ -5,7 +5,7 @@
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
   "scripts": {
-    "prepublish": "npm run rebuild:es && npm run rebuild:cjs",
+    "prepublishOnly": "npm run rebuild:es && npm run rebuild:cjs",
     "postpublish": "npm run clean",
     "build": "npm run build:cjs && npm run build:es",
     "build:cjs": "cross-env BABEL_ENV=commonjs babel src/ -d lib -s",
@@ -24,8 +24,8 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
     "cross-env": "^5.0.5",
     "rimraf": "^2.6.2"
   },
@@ -34,7 +34,7 @@
     "url": "git+https://github.com/artalar/react-router-deferred-route.git"
   },
   "keywords": [
-    "redux-act"
+    "react-router"
   ],
   "author": "artalar",
   "license": "ISC",
