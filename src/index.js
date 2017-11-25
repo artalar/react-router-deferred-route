@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Route from 'react-router-dom/Route';
+import Route from 'react-router/Route';
 
 class DeferredRoute extends React.Component {
   constructor(props, context) {
@@ -85,17 +85,17 @@ DeferredRoute.contextTypes = {
 
 DeferredRoute.propTypes = {
   component: PropTypes.func.isRequired,
-  delay: PropTypes.number,
-  onUnmounting: PropTypes.object,
-  innerProps: PropTypes.object,
   path: PropTypes.string,
+  delay: PropTypes.number,
+  innerProps: PropTypes.object,
+  onUnmounting: PropTypes.object,
 };
 
 DeferredRoute.defaultProps = {
-  delay: 1000,
-  onUnMount: null,
-  innerProps: null,
   path: '/',
+  delay: 1000,
+  innerProps: null,
+  onUnmounting: null,
 };
 
 export default DeferredRoute;
