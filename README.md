@@ -1,6 +1,6 @@
 # react-router-deferred-route
 
-## Simple way to deffer unmount your route component
+## Simple way to defer unmount your route component
 
 ### Instalation
 
@@ -34,7 +34,7 @@ import DeferredRoute from 'react-router-deferred-route';
 
 ### Explanation
 
-`DeferredRoute` allways return `Route` component (from `react-router`), so you can use it with `Switch`. But when `path` in `DeferredRoute` becomes not equal with `router.route.location.pathname` (current url), `Route` returned without any `path` property, so thay stay will exist for `delay` time. After `delay` `path` will be returned to `Route` and thay will disapier probably. As a bonus you can set `onUnmounting` property, to be added in props to component only when target path and current path is not equal.
+`DeferredRoute` always returns `Route` component (from `react-router`), so you can use it with `Switch`. But when `path` in `DeferredRoute` becomes not equal with `router.route.location.pathname` (current url), `Route` returned without any `path` property, so that stay will exist for `delay` time. After `delay` `path` will be returned to `Route` and that will disappear probably. As a bonus you can set `onUnmounting` property, to be added in props to the component only when target path and the current path is not equal.
 
 > component get `Route` properties
 
